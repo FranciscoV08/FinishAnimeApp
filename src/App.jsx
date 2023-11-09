@@ -28,7 +28,7 @@ function App() {
     fetchApi()  
   }, [search])
 
-
+// fafjklñfsja
   // Funcion para cambiar la busqueda 
   const searchAnime = (e) => {
 
