@@ -1,60 +1,68 @@
-import { useEffect, useState } from 'react'
-
+import { useState } from 'react'
+import { CardsAnime } from './components/CardsAnime.jsx'
+import { Header } from './components/Header'
+import { Search } from './components/Search'
 
 function App() {
 
-  // estados del componente
-  const [image, setImage] = useState()
-  const [search, setSearch] = useState('Mushoku tensei')
-  const [dataAnime, setDataAnime] = useState()
+  const [anime, setanime] = useState('Mushoku tensei')
+  const [animeData, setanimeData] = useState([])
 
-
-  // Peticion a la api
-  const fetchApi = async () => {
-    const url = `https://api.jikan.moe/v4/anime?q=${search}&limit=20`;
-
-    const resp = await fetch(url);
-    const respJson = await resp.json();
-
-    setDataAnime(respJson)
+  const prueba = (dato) => {
+    setanimeData(dato.data)
   }
+//   // 
 
-  const filtroObjet = ({data}) => {
-    const urlImage =data[0].images.jpg.image_url; 
-    setImage(urlImage)
-  }
+//     // estados del componente
+//     const [image, setImage] = useState()
+//     const [search, setSearch] = useState('Mushoku tensei')
+//     const [dataAnime, setDataAnime] = useState()
 
-  useEffect(() => {
-    fetchApi()  
-  }, [search])
+    
+//   // Peticion a la api
+//   const fetchApi = async () => {
+//     const url = `https://api.jikan.moe/v4/anime?q=${search}&limit=20`;
 
-// fafjklñfsja
-  // Funcion para cambiar la busqueda 
-  const searchAnime = (e) => {
+//     const resp = await fetch(url);
+//     const respJson = await resp.json();
 
-    console.log(e.target.value)
-    const anime = e.target.value;
-    setSearch(anime)
+//     setDataAnime(respJson)
+//   }
 
-  }
+//   const filtroObjet = ({data}) => {
+//     const urlImage =data[0].images.jpg.image_url; 
+//     setImage(urlImage)
+//   }
 
+//   useEffect(() => {
+//     fetchApi()  
+//   }, [search])
+
+// // fafjklñfsja
+//   // Funcion para cambiar la busqueda 
+//   const searchAnime = (e) => {
+
+//     console.log(e.target.value)
+//     const anime = e.target.value;
+//     setSearch(anime)
+
+//   }
+
+//   // 
   return (
     <>
-     <h1>Imagenes del api</h1>
+      <header>
+        <Header />
+      </header>
 
-    <input 
-      type="text" 
-      value={search}
-      onChange={searchAnime}
-    />
-    <button 
-      type="submit"
-      onClick={() => filtroObjet(dataAnime)}
-    >Buscar</button>
+      <main className='text-center md:flex'>
+        <Search prueba={prueba}/>
+        <CardsAnime animeData={animeData}/>
+      </main>
 
-    <div>
-       <img src={image} alt="imageAnime" />
-    </div>
+      <footer>
+
+      </footer>
     </>
   )
 }
