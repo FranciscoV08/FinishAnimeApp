@@ -1,13 +1,14 @@
 
 export const Card = ({data}) => {
-  const img = data.images.jpg.image_url;
+  const {id, url, title} = data;
+
   return (
     <div className="bg-white p-5 ">
         <div>
-            <h1>Mushoku tensei</h1>
+            <img src={url} alt="" />
         </div>
         <div>
-            <img src={img} alt="" />
+            <h1>{title}</h1>
         </div>
     </div>
   )
