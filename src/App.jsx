@@ -7,12 +7,18 @@ function App() {
 
   const [animeName, setAnimeName] = useState()
   const [animeData, setAnimeData] = useState()
+  const [favorito, setFavorito] = useState([])
 
 // Solo cuando haga click manda el name del anime al estado padre
   const nameAdd = (name) => {
     setAnimeName(name)
-
   } 
+
+  const favoritosAdd = (dato) => {
+
+    setFavorito([...favorito, dato])
+    console.log(favorito)
+  }
   
   useEffect(() => {
     getGifs(animeName)
@@ -44,8 +50,14 @@ function App() {
       </header>
 
       <main className='text-center md:flex'>
-        <Search nameAdd={nameAdd}/>
-        <CardsAnime animeData={animeData} />
+        <Search 
+          nameAdd={nameAdd}
+        />
+        <CardsAnime 
+          animeData={animeData} 
+          favoritosAdd={favoritosAdd}
+
+        />
       </main>
 
     </>

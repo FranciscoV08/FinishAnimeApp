@@ -5,7 +5,7 @@ import { Card } from "./Card"
     -
   */
 
-export const CardsAnime = ({animeData=[]}) => {
+export const CardsAnime = ({animeData=[], favoritosAdd}) => {
 
   return (
     <div className="md:w-3/5 text-center font-bold h-screen overflow-y-scroll ml-5">
@@ -18,6 +18,7 @@ export const CardsAnime = ({animeData=[]}) => {
                 <Card 
                   key={data.id} 
                   data={data}
+                  favoritosAdd={favoritosAdd}
                 />
               )
           }
