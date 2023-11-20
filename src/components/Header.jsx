@@ -1,3 +1,5 @@
+import { Completados } from "../Page/Completados"
+
 
 export const Header = () => {
   return (
@@ -6,7 +8,7 @@ export const Header = () => {
             <h1> Finish my <span className="text-blue-500">anime</span> app</h1>
         </div>
         <div className=" ">
-            <a className="mx-2 hover:text-blue-500" href="#">Completados</a>
+            <a className="mx-2 hover:text-blue-500" href="#" >Completado</a>
             <a className="mx-2 hover:text-blue-500" href="#">En proceso</a>
             <a className="mx-2 hover:text-blue-500" href="#">Favoritos</a>
         </div>

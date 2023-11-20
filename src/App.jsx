@@ -13,6 +13,7 @@ function App() {
     setAnimeName(name)
 
   } 
+  
   useEffect(() => {
     getGifs(animeName)
   }, [animeName])
@@ -35,8 +36,6 @@ function App() {
     setAnimeData( animes )
     // return animes;
   }
-
-  console.log(animeData)
 
   return (
     <>

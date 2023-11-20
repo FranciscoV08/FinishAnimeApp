@@ -1,9 +1,9 @@
 
 export const Card = ({data}) => {
-  const {id, url, title} = data;
+  const {url, title} = data;
 
   return (
-    <div className="bg-white p-5 ">
+    <div className="bg-white p-5 cursor-pointer shadow-xl ">
         <div>
             <img src={url} alt="" />
         </div>

@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useFetch } from '../Hook/useFetch';
+import { useState } from 'react';
 
+
+  /* La unica funcion hasta ahora del Componente es :
+    -Guardar en el propio estado el nombre
+    -Mediante el uso de la properti mandar el nombre al padre, solo si se hace click en el input  
+  */
 
 export const Search = ( {nameAdd} ) => {
-  
+
   // Estados del componente 
   const [anime, setAnime] = useState('Mushoku tensei');
 
@@ -26,6 +30,7 @@ export const Search = ( {nameAdd} ) => {
 
         <input 
           type="text" 
+          placeholder='Busca tu anime'
           value={anime} 
           onChange={changeName} 
         />
