@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { CardsAnime } from './components/CardsAnime.jsx'
 import { Header } from './components/Header'
+import { Pcard } from './components/Pcard.jsx'
+import { Pfooter } from './components/Pfooter.jsx'
 import { Search } from './components/Search'
-
 function App() {
 
   const [animeName, setAnimeName] = useState()
@@ -59,7 +60,32 @@ function App() {
 
         />
       </main>
-
+      <footer className='bg-gray-400'>
+      <div className="text-2xl font-bold uppercase text-center">
+            <h1> Tus Guardados <span className="text-blue-500">Estan aqui</span> </h1>
+        </div>
+         <div  className="md:w-3/5 text-center font-bold w-screen overflow-x-scroll ml-5">
+          <div className=" flex">
+            {
+              // Si animeData es verdadero, la expresión que le sigue (animeData.map(...)) se ejecuta. Si animeData es falso, la expresión se detiene y no se ejecuta el mapeo.
+             favorito.length > 0 ? favorito.map( data => 
+              <Pcard
+              key={data.id}
+              data={data}
+              />
+              ) : 
+              console.log('No hola')
+              // favorito.map( data =>
+              //     <Card 
+              //       key={data.id} 
+              //       data={data}
+                    
+              //     />
+              //   )
+            }
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
